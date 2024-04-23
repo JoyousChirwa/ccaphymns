@@ -57,7 +57,7 @@ function search(txt) {
             AlertBox("Please enter something prefferbly a number");
         } else {
             closeAlert();
-            AlertBox("Please enter something prefferbly a number");
+            AlertBox("Please enter something prefferbly a number!");
         }
     }
 }
@@ -98,12 +98,15 @@ function searchStaff(event) {
         fabsearch.style.display = "none";
         fab.style.display = "block";
         window.location = "#top";
-        //hideFab();
     } 
 }
 
 function hideFabSearch() {
+    if ( !count < 1) {
+        closeAlert();
+    }
     document.getElementById("fabsearch").style.display = "none";
+    document.getElementById("Searchtxt").value = "";
     document.getElementById("fab").style.display = "block";
     document.getElementById("defaultNavbar1").className = "collapse";
 }
@@ -167,10 +170,14 @@ function closeAlert() {
 document.addEventListener("DOMContentLoaded", function() {
     hideFab()
     window.addEventListener("scroll", function() {
-        if(window.innerHeight + window.scrollY => document.body.offsetHeight) {
+        if(window.innerHeight + window.scrollY >= document.body.offsetHeight) {
             document.body.style.background="#0099FF";
         } else if (!window.scrollY) {
-            document.querySelector('body').style.background="#0099FF";
+            //document.querySelector('body').style.background="#0099FF";
+            showFab();
+        } else {
+            document.body.style.background="#FFFFFF";
         }
     });
-});*/
+}); 
+*/

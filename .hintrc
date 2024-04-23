@@ -1,0 +1,20 @@
+{
+  "extends": [
+    "development"
+  ],
+  "hints": {
+    "axe/aria": "off"
+  }
+}fault",
+      {
+        "aria-required-parent": "off"
+      }
+    ],
+    "axe/keyboard": [
+      "default",
+      {
+        "nested-interactive": "off"
+      }
+    ]
+  }
+}

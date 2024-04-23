@@ -13,6 +13,9 @@
 	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 	<style type="text/css" media="all">
+		body {
+			padding-top:4rem;
+		}
 	    h3 {
 	        font-family: 'Times New Roman';
 	    }
@@ -30,11 +33,31 @@
 	    .rows {
 	        padding:0 1.1em 1.1em 1.1em;
 	    }
+		.mypanel {
+			display:none; 
+			margin:0 0.8em 0.8em 0.8em;
+		}
+		.fabsearch {
+			position:fixed; 
+			right:4px; 
+			left:4px; 
+			bottom:4px; 
+			display:none; 
+			z-index: 1000;
+		}
+		.fab {
+			height:45px; 
+			width:45px; 
+			border-radius:5px; 
+			position:fixed; 
+			right:4px; 
+			bottom:4px;
+		}
 	</style>
 	<script src="hymns.js" type="text/javascript"></script>
   </head>
     
-  <body style="padding-top:4rem;" id="top">
+  <body  id="top"> <!--style="padding-top:4rem;"-->
     <!-- <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid"> 
         Brand and toggle get grouped for better mobile display
@@ -84,7 +107,7 @@
     <div class="jumbotron text-center"> <h1><strong> CCAP HYMNS </strong></h1>
     </div>
     
-    <div id="mypanel" class="panel panel-primary" style="display:none; margin:0 0.8em 0.8em 0.8em">
+    <div id="mypanel" class="panel panel-primary mypanel" > <!--style="display:none; margin:0 0.8em 0.8em 0.8em"-->
         <div class="panel-heading">
             <button class="close" id="closer" onclick="Closer();" >&#215;</button>
             <h5 class="panel-title">
@@ -97,9 +120,13 @@
     
     <div class="Alert_box" id="Alert_box" role="alert"></div>
     
-    <form id="fabsearch" class="navbar-form" role="search" 
-        style="position:fixed; right:4px; left:4px; bottom:4px; display:none; z-index: 1000">
+    <form id="fabsearch" class="navbar-form fabsearch" role="search" > <!--style="position:fixed; right:4px; left:4px; bottom:4px; display:none; z-index: 1000"-->
         <div class="form-group input-group">
+			<div class="input-group-btn">
+                <button type="submit" class="btn btn-default btn-danger" onclick="hideFabSearch();" >
+                    <span class="glyphicon glyphicon-remove" style="font-size:11pt; height: 14px;"></span>
+                </button>
+            </div>
             <input id="Searchtxt" type="search" class="form-control" placeholder="Search enter hymn number">
             <div class="input-group-btn">
                 <button type="submit" class="btn btn-default btn-primary" onclick="searchStaff();" >
@@ -109,11 +136,10 @@
         </div>
     </form>
     
-    <button id="fab" class="btn btn-primary" 
-        style="height:45px; width:45px; border-radius:5px; position:fixed; right:4px; bottom:4px;" 
+    <button id="fab" class="btn btn-primary fab"  type="button"
         onclick="javascript:{document.getElementById('fabsearch').style.display = 'block'; document.getElementById('fab').style.display = 'none'; document.getElementById('defaultNavbar1').className = 'collapse'; if(counter == 1) { mypanel.style.display = 'none'; } }">
         <span class="glyphicon glyphicon-search"></span>
-    </button>
+    </button> <!--style="height:45px; width:45px; border-radius:5px; position:fixed; right:4px; bottom:4px;" -->
     
   	<div class="container">
   		
